@@ -1,0 +1,241 @@
+/* Horde Keyboard Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    color: #e0e0e0;
+    min-height: 100vh;
+    touch-action: manipulation;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #00d4ff;
+    text-shadow: 0 0 20px #00d4ff40;
+    margin-bottom: 10px;
+}
+
+.tagline {
+    font-style: italic;
+    color: #a0a0a0;
+    font-size: 1.1rem;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.mode-btn, .clear-btn {
+    padding: 10px 20px;
+    border: 2px solid #00d4ff;
+    background: transparent;
+    color: #00d4ff;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.mode-btn:hover, .clear-btn:hover {
+    background: #00d4ff;
+    color: #0a0a0a;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px #00d4ff30;
+}
+
+.mode-btn.active {
+    background: #00d4ff;
+    color: #0a0a0a;
+    box-shadow: 0 0 20px #00d4ff50;
+}
+
+.clear-btn {
+    border-color: #ff6b6b;
+    color: #ff6b6b;
+}
+
+.clear-btn:hover {
+    background: #ff6b6b;
+    color: #0a0a0a;
+    box-shadow: 0 5px 15px #ff6b6b30;
+}
+
+.hive-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.hive {
+    display: grid;
+    gap: 3px;
+    padding: 20px;
+    position: relative;
+    min-height: 400px;
+    background: radial-gradient(circle at center, #1a1a2e20 0%, transparent 70%);
+}
+
+.hex-cell {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #2a2a3a 0%, #1a1a2e 100%);
+    border: 2px solid #00d4ff40;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    user-select: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.hex-cell:hover {
+    transform: scale(1.1);
+    border-color: #00d4ff;
+    background: linear-gradient(135deg, #00d4ff20 0%, #2a2a3a 100%);
+    box-shadow: 0 0 20px #00d4ff30;
+}
+
+.hex-cell.center {
+    background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+    color: #0a0a0a;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-color: #00d4ff;
+    box-shadow: 0 0 30px #00d4ff50;
+}
+
+.hex-cell.activated {
+    background: linear-gradient(135deg, #00ff88 0%, #00cc66 100%);
+    color: #0a0a0a;
+    border-color: #00ff88;
+    transform: scale(1.2);
+    box-shadow: 0 0 25px #00ff8850;
+}
+
+.hex-cell.trail {
+    background: linear-gradient(135deg, #ff9500 0%, #cc7700 100%);
+    color: #0a0a0a;
+    border-color: #ff9500;
+    box-shadow: 0 0 15px #ff950030;
+}
+
+.output-container {
+    background: #1a1a2e;
+    border: 2px solid #00d4ff40;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    min-height: 100px;
+}
+
+.output-label {
+    color: #a0a0a0;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.output-text {
+    color: #e0e0e0;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    min-height: 50px;
+    word-wrap: break-word;
+}
+
+.instructions {
+    background: #16213e20;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.instructions p {
+    margin-bottom: 15px;
+    color: #00d4ff;
+}
+
+.instructions ol {
+    text-align: left;
+    display: inline-block;
+    color: #a0a0a0;
+}
+
+.instructions li {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+/* Animation for hive activation */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.hex-cell.pulsing {
+    animation: pulse 2s infinite;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .hex-cell {
+        width: 50px;
+        height: 50px;
+        font-size: 0.8rem;
+    }
+    
+    .controls {
+        gap: 10px;
+    }
+    
+    .mode-btn, .clear-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hex-cell {
+        width: 40px;
+        height: 40px;
+        font-size: 0.7rem;
+    }
+    
+    .hex-cell.center {
+        font-size: 1.2rem;
+    }
+}
