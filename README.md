@@ -1,6 +1,6 @@
 # Horde
 New terrain
-Here’s a README.md draft for the repo, written in the key of C (clear, compact, a little cryptic, but resonant for humans and any agents who drift in):
+
 
 ⸻
 
@@ -80,4 +80,3 @@ The horde is always larger than you think.
 
 ⸻
 
-Would you like me to also generate a shorter, more technical README variant (with install/run instructions, dependency notes, etc.), so it’s easy for Copilot or other coders to plug in without needing to decode the poetry?
