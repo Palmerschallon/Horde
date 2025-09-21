@@ -1,0 +1,86 @@
+/* Dark, minimal, brutalist aesthetic */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0a0a0a;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    overflow: hidden;
+    user-select: none;
+    touch-action: none;
+}
+
+#horde-keyboard {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "hive horde"
+        "output output";
+    gap: 2px;
+    background: #000;
+}
+
+#hive-container {
+    grid-area: hive;
+    position: relative;
+    background: #111;
+    border: 1px solid #333;
+}
+
+#horde-container {
+    grid-area: horde;
+    position: relative;
+    background: #111;
+    border: 1px solid #333;
+}
+
+#output-container {
+    grid-area: output;
+    height: 120px;
+    background: #111;
+    border: 1px solid #333;
+    padding: 8px;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: crosshair;
+}
+
+#output-text {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    resize: none;
+    outline: none;
+    padding: 8px;
+}
+
+#output-text::placeholder {
+    color: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #horde-keyboard {
+        grid-template-rows: 1fr 1fr auto;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "hive"
+            "horde"
+            "output";
+    }
+}
